@@ -13,11 +13,17 @@ jobs:
       uses: actions/checkout@v2
     - name: Setup .NET SDK
       uses: actions/setup-dotnet@v1
+    - name: Verify commit exists in origin/main
+      run: |
+        git fetch --no-tags --prune --depth=1 origin +refs/heads/*:refs/remotes/origin/*
+        git branch --remote --contains | grep origin/main
+    - name: Set VERSION variable from tag
+      run: echo "VERSION=${GITHUB_REF/refs\/tags\/v/}" >> $GITHUB_ENV
     - name: Build
-      run: dotnet build Blazor.Mapy.cz -c Release
+      run: dotnet build Blazor.Mapy.cz -c Release /p:Version=${VERSION}
     - name: Test
-      run: dotnet test Blazor.Mapy.cz -c Release --no-build
+      run: dotnet test Blazor.Mapy.cz -c Release /p:Version=${VERSION} --no-build
     - name: Pack nugets 
-      run: dotnet pack Blazor.Mapy.cz -c Release --no-build --output .
+      run: dotnet pack Blazor.Mapy.cz -c Release /p:Version=${VERSION} --no-build --output .
     - name: Push to NuGet
       run: dotnet nuget push "*.nupkg" --api-key ${{secrets.nuget_api_key}} --source https://api.nuget.org/v3/index.json
