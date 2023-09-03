@@ -12,7 +12,7 @@ public class RouteMapJs : IAsyncDisposable
     public RouteMapJs(IJSRuntime jsRuntime)
     {
         moduleTask = new(() => jsRuntime.InvokeAsync<IJSObjectReference>(
-            "import", "./_content/Blazor.Mapy.cz/MaplibreglJsInterop.js").AsTask());
+            "import", "./_content/Blazor.Component.Mapycz/MaplibreglJsInterop.js").AsTask());
     }
 
     public async ValueTask<IJSObjectReference> RouteMap(IJSObjectReference map, GeometryType geometry)

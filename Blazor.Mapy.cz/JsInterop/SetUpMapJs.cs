@@ -13,13 +13,13 @@ public class SetUpMapJs : IAsyncDisposable
     {
         _options = options;
         moduleTask = new(() => jsRuntime.InvokeAsync<IJSObjectReference>(
-            "import", "./_content/Blazor.Mapy.cz/MaplibreglJsInterop.js").AsTask());
+            "import", "./_content/Blazor.Component.Mapycz/MaplibreglJsInterop.js").AsTask());
     }
 
-    public async ValueTask<IJSObjectReference> SetUpMap(double Lat, double Lng)
+    public async ValueTask<IJSObjectReference> SetUpMap(double lat, double lng)
     {
         var module = await moduleTask.Value;
-        return await module.InvokeAsync<IJSObjectReference>("SetMap", Lat, Lng, _options.Value.ApiKey);
+        return await module.InvokeAsync<IJSObjectReference>("SetMap", lat, lng, _options.Value.ApiKey);
     }
 
     public async ValueTask DisposeAsync()

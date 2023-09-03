@@ -11,7 +11,7 @@ public class SetMarkerJs : IAsyncDisposable
     public SetMarkerJs(IJSRuntime jsRuntime)
     {
         moduleTask = new(() => jsRuntime.InvokeAsync<IJSObjectReference>(
-            "import", "./_content/Blazor.Mapy.cz/MaplibreglJsInterop.js").AsTask());
+            "import", "./_content/Blazor.Component.Mapycz/MaplibreglJsInterop.js").AsTask());
     }
 
     public async ValueTask<IJSObjectReference> SetMarker(object map,double lat, double lng, string color)
