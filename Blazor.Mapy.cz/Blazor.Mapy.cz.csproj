@@ -6,13 +6,25 @@
         <ImplicitUsings>enable</ImplicitUsings>
     </PropertyGroup>
 
+    
+  <PropertyGroup>
+    <PackageId>Blazor.Component.Mapycz</PackageId>
+    <Authors>kucha.david@gmail.com</Authors>
+    <Company></Company>
+    <Description>Components for manipulation with mapy cz</Description>
+    <Copyright>Copyright 2023 (c) Kuchar David. All rights reserved.</Copyright>
+    <PackageProjectUrl>https://github.com/KuchaD/Blazor.Mapycz</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/KuchaD/Blazor.Mapycz</RepositoryUrl>
+    <PackageTags>mapy maps mapycz mapy.cz blazormaps </PackageTags>
+    <PackageReleaseNotes></PackageReleaseNotes>
+  </PropertyGroup>
 
     <ItemGroup>
         <SupportedPlatform Include="browser" />
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="7.0.2" />
+        <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="7.0.10" />
         <PackageReference Include="Microsoft.Extensions.Http" Version="7.0.0" />
         <PackageReference Include="System.Collections.Concurrent" Version="4.3.0" />
         <PackageReference Include="System.Net.Http" Version="4.3.4" />
