@@ -1,0 +1,18 @@
+<div></div>
+@code {
+    [Parameter]
+    public required MapyPoint Position { get; set; }
+
+    [Parameter]
+    public string Color { get; set; } = "#ff0000";
+    
+    [CascadingParameter]
+    public Mapy Mapy { get; set; }
+
+    protected override void OnInitialized()
+    {
+        Mapy.AddMarker(this);
+        base.OnInitialized();
+    }
+
+}

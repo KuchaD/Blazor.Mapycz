@@ -1,0 +1,124 @@
+{
+  "Version": 1,
+  "Hash": "erO5WmncIjfx3Kab4KEg+9xIbzUwbcsX/EuQbHqkVSY=",
+  "Source": "ExampleApp",
+  "BasePath": "_content/ExampleApp",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [
+    {
+      "Identity": "/Users/david/git/Blazor.Mapycz/Blazor.Mapy.cz/Blazor.Mapy.cz.csproj",
+      "Version": 2,
+      "Source": "Blazor.Mapy.cz",
+      "GetPublishAssetsTargets": "ComputeReferencedStaticWebAssetsPublishManifest;GetCurrentProjectPublishStaticWebAssetItems",
+      "AdditionalPublishProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier;SelfContained",
+      "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
+      "AdditionalBuildProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier;SelfContained"
+    }
+  ],
+  "DiscoveryPatterns": [
+    {
+      "Name": "Blazor.Mapy.cz/wwwroot",
+      "Source": "Blazor.Mapy.cz",
+      "ContentRoot": "/Users/david/git/Blazor.Mapycz/Blazor.Mapy.cz/wwwroot/",
+      "BasePath": "_content/Blazor.Mapy.cz",
+      "Pattern": "**"
+    },
+    {
+      "Name": "ExampleApp/wwwroot",
+      "Source": "ExampleApp",
+      "ContentRoot": "/Users/david/git/Blazor.Mapycz/ExampleApp/wwwroot/",
+      "BasePath": "_content/ExampleApp",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "/Users/david/git/Blazor.Mapycz/Blazor.Mapy.cz/obj/Debug/net7.0/scopedcss/projectbundle/Blazor.Mapy.cz.bundle.scp.css",
+      "SourceId": "Blazor.Mapy.cz",
+      "SourceType": "Project",
+      "ContentRoot": "/Users/david/git/Blazor.Mapycz/Blazor.Mapy.cz/obj/Debug/net7.0/scopedcss/projectbundle/",
+      "BasePath": "_content/Blazor.Mapy.cz",
+      "RelativePath": "Blazor.Mapy.cz.bundle.scp.css",
+      "AssetKind": "All",
+      "AssetMode": "Reference",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "ScopedCss",
+      "AssetTraitValue": "ProjectBundle",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "/Users/david/git/Blazor.Mapycz/Blazor.Mapy.cz/obj/Debug/net7.0/scopedcss/projectbundle/Blazor.Mapy.cz.bundle.scp.css"
+    },
+    {
+      "Identity": "/Users/david/git/Blazor.Mapycz/Blazor.Mapy.cz/wwwroot/background.png",
+      "SourceId": "Blazor.Mapy.cz",
+      "SourceType": "Project",
+      "ContentRoot": "/Users/david/git/Blazor.Mapycz/Blazor.Mapy.cz/wwwroot/",
+      "BasePath": "_content/Blazor.Mapy.cz",
+      "RelativePath": "background.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/background.png"
+    },
+    {
+      "Identity": "/Users/david/git/Blazor.Mapycz/Blazor.Mapy.cz/wwwroot/MaplibreglJsInterop.js",
+      "SourceId": "Blazor.Mapy.cz",
+      "SourceType": "Project",
+      "ContentRoot": "/Users/david/git/Blazor.Mapycz/Blazor.Mapy.cz/wwwroot/",
+      "BasePath": "_content/Blazor.Mapy.cz",
+      "RelativePath": "MaplibreglJsInterop.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/MaplibreglJsInterop.js"
+    },
+    {
+      "Identity": "/Users/david/git/Blazor.Mapycz/ExampleApp/obj/Debug/net7.0/scopedcss/bundle/ExampleApp.styles.css",
+      "SourceId": "ExampleApp",
+      "SourceType": "Computed",
+      "ContentRoot": "/Users/david/git/Blazor.Mapycz/ExampleApp/obj/Debug/net7.0/scopedcss/bundle/",
+      "BasePath": "_content/ExampleApp",
+      "RelativePath": "ExampleApp.styles.css",
+      "AssetKind": "All",
+      "AssetMode": "CurrentProject",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "ScopedCss",
+      "AssetTraitValue": "ApplicationBundle",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "/Users/david/git/Blazor.Mapycz/ExampleApp/obj/Debug/net7.0/scopedcss/bundle/ExampleApp.styles.css"
+    },
+    {
+      "Identity": "/Users/david/git/Blazor.Mapycz/ExampleApp/wwwroot/css/site.css",
+      "SourceId": "ExampleApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/david/git/Blazor.Mapycz/ExampleApp/wwwroot/",
+      "BasePath": "_content/ExampleApp",
+      "RelativePath": "css/site.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/css/site.css"
+    }
+  ]
+}

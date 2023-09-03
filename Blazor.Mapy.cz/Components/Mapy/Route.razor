@@ -1,0 +1,80 @@
+@using Blazor.Mapy.cz.Helper.Enums
+@using Blazor.Mapy.cz.JsInterop
+@using Blazor.Mapy.cz.Services
+@using Microsoft.JSInterop
+@using Blazor.Mapy.cz.Components.Models
+<CascadingValue Value="@this">
+  @ChildContent
+</CascadingValue>
+
+@code {
+  [Inject] private RouteMapJs RouteMapJs { get; set; } = null!;
+    
+  [Inject] private IRouteService RouteService { get; set; } = null!;
+  
+  [Parameter]
+  public required RenderFragment ChildContent { get; set; }
+  
+  [Parameter]
+  public RouteType? RouteType { get; set; }
+    
+  [Parameter]
+  public bool AvoidToll { get; set; }
+  
+  [CascadingParameter]
+  public Mapy Mapy { get; set; }
+  
+  [Parameter]
+  public EventCallback<RouteCallbackValue> OnRouteCalculated { get; set; }
+  
+  private List<RoutePoint> RoutePoints { get; set; } = new ();
+  
+  protected override async Task OnAfterRenderAsync(bool firstRender)
+  {
+    if (firstRender)
+    {
+      Mapy.SetRouteData(this);
+    }
+    
+    await base.OnAfterRenderAsync(firstRender);
+  }
+
+  public void AddRoutePoint(RoutePoint routePoint)
+  {
+    if(routePoint.Order is not null)
+    {
+      RoutePoints.Insert((int)routePoint.Order,routePoint);
+    }
+    else
+    {
+      RoutePoints.Add(routePoint);
+    }
+  }
+  
+  public async Task LoadRoute(IJSObjectReference map)
+  {
+    if (RoutePoints.Count < 2)
+    {
+      throw new Exception("Route must have at least 2 points");
+    }
+
+    List<MapyPoint>? othersRoutePoints = null;
+    
+    if(RoutePoints.Count > 2)
+    {
+      othersRoutePoints = RoutePoints.Skip(1).Take(RoutePoints.Count - 2).Select(x => x.Position).ToList();
+    }
+
+    var response = await RouteService.GetRoute(
+      RoutePoints.First().Position,
+      RoutePoints.Last().Position,
+      RouteType!, 
+      AvoidToll,
+      othersRoutePoints
+      );
+    
+      await RouteMapJs.RouteMap(map, response.Geometry);
+    
+    await OnRouteCalculated.InvokeAsync(new RouteCallbackValue(response.Length, response.Duration));
+  }
+}

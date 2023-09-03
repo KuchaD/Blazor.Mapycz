@@ -1,0 +1,17 @@
+@using Blazor.Mapy.cz.Components.Models
+@code {
+    [Parameter]
+    public required MapyPoint Position { get; set; }
+    
+    [Parameter]
+    public required uint? Order { get; set; } = null;
+
+    [CascadingParameter]
+    public Route Route { get; set; }
+
+    protected override void OnInitialized()
+    {
+        Route.AddRoutePoint(this);
+        base.OnInitialized();
+    }
+}
