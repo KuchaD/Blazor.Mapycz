@@ -1,3 +1,4 @@
+using System.Security.Cryptography.X509Certificates;
 using Blazor.Mapy.cz.Helper.Enums;
 using Blazor.Mapy.cz.JsInterop;
 using Blazor.Mapy.cz.Services;
@@ -21,7 +22,7 @@ public partial class Mapy
     [Parameter]
     public RenderFragment Others { get; set; }
     
-    private List<Marker> markers { get; set; } = new ();
+    public List<Marker> markers { get; set; } = new ();
     
     public Route? RouteData { get; set; }
     
