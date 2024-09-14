@@ -5,11 +5,11 @@ export function showPrompt(message) {
   return prompt(message, 'Type anything here');
 }
 
-export function SetMap(lat, lng, API_KEY){
+export function SetMap(lat, lng, zoom, firstRender, API_KEY){
   var map = new maplibregl.Map({
     container: 'map',
     center: [lng, lat], // starting position [lng, lat]
-    zoom: 10, // starting zoom
+    zoom: zoom, // starting zoom
     style: {
       version: 8,
       sources: {
@@ -66,7 +66,9 @@ export function SetMap(lat, lng, API_KEY){
   }
 
   // we add our LogoControl to the map
-  map.addControl(new LogoControl(), 'bottom-left');
+  if (firstRender) {
+    map.addControl(new LogoControl(), 'bottom-left');
+  }
   
   return map;
 }

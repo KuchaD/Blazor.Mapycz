@@ -3,7 +3,7 @@
 @using Blazor.Mapy.cz.Components.Models
 @using Blazor.Mapy.cz.Helper.Enums
 
-<Mapy Center=@(new MapyPoint(49.8290669, 18.2534053))>
+<Mapy @ref="mapy" Center=@(new MapyPoint(49.8290669, 18.2534053)) Zoom="2">
     <Markers>
         <Marker Position=@(new MapyPoint(49.8290669, 18.2534053))></Marker>
         <Marker Position=@(new MapyPoint(49.7813447, 18.2601403))></Marker>
@@ -21,14 +21,24 @@
 @distance m
 @time
 
+<button onclick="@Click">Random</button>
+
 @code {
 
     private double distance;
     TimeSpan time;
+
+    private Mapy mapy;
     
     void RouteRecalculate(RouteCallbackValue arg)
     {
         distance = arg.Length;
         time = TimeSpan.FromSeconds(arg.Duration);
+    }
+
+    async Task Click()
+    {
+        mapy.Center = new MapyPoint(Random.Shared.Next(0, 20), 18.2601403);
+        await mapy.Load();
     }
 }

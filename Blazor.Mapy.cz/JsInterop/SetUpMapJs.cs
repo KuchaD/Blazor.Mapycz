@@ -16,10 +16,10 @@ public class SetUpMapJs : IAsyncDisposable
             "import", "./_content/Blazor.Component.Mapycz/MaplibreglJsInterop.js").AsTask());
     }
 
-    public async ValueTask<IJSObjectReference> SetUpMap(double lat, double lng)
+    public async ValueTask<IJSObjectReference> SetUpMap(double lat, double lng, double zoom, bool firstRender)
     {
         var module = await moduleTask.Value;
-        return await module.InvokeAsync<IJSObjectReference>("SetMap", lat, lng, _options.Value.ApiKey);
+        return await module.InvokeAsync<IJSObjectReference>("SetMap", lat, lng, zoom, firstRender, _options.Value.ApiKey);
     }
 
     public async ValueTask DisposeAsync()

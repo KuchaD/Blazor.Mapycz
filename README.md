@@ -27,9 +27,9 @@ or
 ## Example 
 
 ```
-<Mapy Center=@(new MapyPoint(49.8290669, 18.2534053))>
+<Mapy @ref="mapy" Center=@(new MapyPoint(49.8290669, 18.2534053)) Zoom="2">
     <Markers>
-        <Marker Position=@(new MapyPoint(49.8290669, 18.2534053) Color="#FFFFFF")></Marker>
+        <Marker Position=@(new MapyPoint(49.8290669, 18.2534053))></Marker>
         <Marker Position=@(new MapyPoint(49.7813447, 18.2601403))></Marker>
     </Markers>
     
@@ -42,8 +42,11 @@ or
     </Others>
 </Mapy> 
 
+<button onclick="@Click">Reload random</button>
+
 Distance in m = @distance m
 Time @time
+private Mapy mapy;
 
 @code {
 
@@ -54,6 +57,12 @@ Time @time
     {
         distance = arg.Length;
         time = TimeSpan.FromSeconds(arg.Duration);
+    }
+
+    async Task Click()
+    {
+        mapy.Center = new MapyPoint(Random.Shared.Next(0, 20), 18.2601403);
+        await mapy.Load();
     }
 }
 ```
